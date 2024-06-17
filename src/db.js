@@ -15,7 +15,7 @@ async function checkConnection() {
         connection.release()
         console.log('DB is CONNECT ')
     } catch (error) {
-        console.error('error', error.message);
+        console.error('Error en la BD!!!!!', error.message);
     }
 }
 
