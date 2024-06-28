@@ -10,18 +10,11 @@ export const register = async (req, res) => {
         const [result] = await pool.query('INSERT INTO user(email, username, password) VALUES(?,?,?)', [email, username, passwordHash])
 
         //jwt
-        const token = jwt.sign({
-            id: result.insertId,
-        }, SECRET_JWT_KEY, 
-        {
-            expiresIn: "1d"
-        },
-        (error, token) => {
-            if(error)console.log(error)
-            res.json({ token })
-        }
-    );
-
+        
+        res.cookie('token', token)
+        res.json({ 
+            message: "User created successfully"
+        })
         /* res.send(result) */
     } catch (error) {
         res.status(500).json({ message: error.message })
