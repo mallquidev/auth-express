@@ -5,7 +5,7 @@ const pool = createPool({
     host: HOST,
     port: PORTDB,
     database: DATABASE,
-    user: "root",
+    user: USER,
     password: PASSWORD
 })
 
