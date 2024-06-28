@@ -1,11 +1,12 @@
 import {createPool} from 'mysql2/promise'
+import {HOST, PORTDB, DATABASE, PASSWORD, USER} from './config.js'
 
 const pool = createPool({
-    host: "localhost",
-    port: 3306,
-    database: "crudreact",
+    host: HOST,
+    port: PORTDB,
+    database: DATABASE,
     user: "root",
-    password: ""
+    password: PASSWORD
 })
 
 async function checkConnection() {
