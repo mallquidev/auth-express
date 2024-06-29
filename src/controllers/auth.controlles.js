@@ -8,7 +8,7 @@ export const register = async (req, res) => {
         const passwordHash = await bcrypt.hash(password, 10)
         const [result] = await pool.query('INSERT INTO user(email, username, password) VALUES(?,?,?)', [email, username, passwordHash])
 
-        //jwt
+        //register
         const token = await createAccessToken({id: result.insertId})
 
         res.cookie('token', token)
