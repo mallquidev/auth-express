@@ -1,4 +1,5 @@
 export const authRequired = (req, res, next) => {
-    console.log(req.headers)
+    const cookies = req.cookies
+    if(!token) return res.status(401).json({message: "No token, authorization denied"})
     next()
 }
