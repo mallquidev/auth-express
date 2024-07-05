@@ -26,7 +26,9 @@ export const login = async(req, res) => {
         const user = userFound[0]
         const isMatch = await bcrypt.compare(password, user.password)
         if(!isMatch) return res.status(203).json({message: 'Unauthorized'})
-        const token = await createAccessToken({id: userFound.insertId})
+        const token = await createAccessToken({id: user.id})
+        console.log(user.id)
+        
         res.cookie('token', token)
         res.json(token)
         
