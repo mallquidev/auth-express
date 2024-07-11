@@ -4,9 +4,9 @@ import { createAccessToken } from '../libs/jwt.js'
 
 export const register = async (req, res) => {
     try {
-        const { email, username, password } = req.body
+        const { user, email, password } = req.body
         const passwordHash = await bcrypt.hash(password, 10)
-        const [result] = await pool.query('INSERT INTO user(email, username, password) VALUES(?,?,?)', [email, username, passwordHash])
+        const [result] = await pool.query('INSERT INTO user(user, email, password) VALUES(?,?,?)', [user, email, passwordHash])
         const token = await createAccessToken({ id: result.insertId })
 
         res.cookie('token', token)

@@ -3,10 +3,10 @@ import {createTasks, deleteTasks, getTask, getTasks, updateTasks} from '../contr
 
 const router = Router()
 
-router.get('/tasks', getTask)
 router.get('/tasks', getTasks)
+router.get('/tasks/:id', getTask)
 router.post('/tasks', createTasks)
-router.put('/tasks', updateTasks)
-router.delete('/tasks', deleteTasks)
+router.put('/tasks/:id', updateTasks)
+router.delete('/tasks/:id', deleteTasks)
 
 export default router;

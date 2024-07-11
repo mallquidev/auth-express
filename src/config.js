@@ -10,3 +10,4 @@ export const USER = process.env.USER
 export const PASSWORD = process.env.PASSWORD
 export const DATABASE = process.env.DATABASE
 export const PORTDB = process.env.PORTDB
+    
